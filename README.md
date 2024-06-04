@@ -4,8 +4,8 @@
 - [x] make it deploy
 - [x] Scaffold basic ui with mock data
 - [x] tidy up build process
-- [ ] Actually set up a database (vercel postgres)
-- [ ] Attach database to UI
+- [x] Actually set up a database (vercel postgres)
+- [x] Attach database to UI
 - [ ] add authentication (w/ clerk)
 - [ ] add image upload
 - [ ] error management (w/ sentry)
