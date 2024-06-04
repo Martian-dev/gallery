@@ -1,18 +1,20 @@
 import { getImage } from "~/server/queries";
-import Image from "next/image";
 
 export default async function FullImagePage(props: { imageId: number }) {
 
 	const image = await getImage(props.imageId);
 
-	return <div>
-		<Image
-			src={image.url}
-			alt={image.name}
-			width={600}
-			height={600}
-			style={{ objectFit: "contain" }}
-		/>
+	return <div className="flex h-full w-full items-center">
+		<div className="flex-shrink">
+			<img
+				src={image.url}
+				alt={image.name}
+				className="object-contain"
+			/>
+		</div>
+		<div className="flex w-96 flex-shrink-0 flex-col justify-between">
+			<div className="text-xl font-bold">{image.name}</div>
+		</div>
 	</div>
 
 }
