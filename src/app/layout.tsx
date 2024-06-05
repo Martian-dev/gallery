@@ -5,7 +5,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
 import { ourFileRouter } from "./api/uploadthing/core";
 import { extractRouterConfig } from "uploadthing/server";
-import { Toaster } from "~/components/ui/toaster";
+import { Toaster } from "~/components/ui/sonner";
 
 export const metadata = {
   title: "Gallery",
@@ -38,8 +38,8 @@ export default function RootLayout({
             </div>
           </div>
           {modal}
-          <Toaster />
           <div id="modal-root" />
+          <Toaster />
         </body>
       </html>
     </ClerkProvider>
