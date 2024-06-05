@@ -5,6 +5,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
 import { ourFileRouter } from "./api/uploadthing/core";
 import { extractRouterConfig } from "uploadthing/server";
+import { Toaster } from "~/components/ui/toaster";
 
 export const metadata = {
   title: "Gallery",
@@ -27,7 +28,7 @@ export default function RootLayout({
         <NextSSRPlugin
           routerConfig={extractRouterConfig(ourFileRouter)}
         />
-        <body className={`${inter.className}`}>
+        <body className={`${inter.className} dark`}>
           <div className="w-full">
             <header className="sticky inset-x-0 top-0 w-full">
               <TopNav />
@@ -37,6 +38,7 @@ export default function RootLayout({
             </div>
           </div>
           {modal}
+          <Toaster />
           <div id="modal-root" />
         </body>
       </html>
