@@ -44,12 +44,42 @@ function UploadIcon() {
   );
 }
 
+function UploadSpinner() {
+  return (
+
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="#eee"
+    >
+      <path d="M12,1A11,11,0,1,0,23,12,11,11,0,0,0,12,1Zm0,19a8,8,0,1,1,8-8A8,8,0,0,1,12,20Z" opacity=".25" />
+      <path
+        d="M12,4a8,8,0,0,1,7.89,6.7A1.53,1.53,0,0,0,21.38,12h0a1.5,1.5,0,0,0,1.48-1.75,11,11,0,0,0-21.72,0A1.5,1.5,0,0,0,2.62,12h0a1.53,1.53,0,0,0,1.49-1.3A8,8,0,0,1,12,4Z"
+        className="spinner_z9k8"
+      />
+    </svg>
+  );
+}
+
+function CheckMark() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+    </svg>
+  );
+}
+
 export default function UploadButton() {
 
   const router = useRouter();
   const { inputProps } = useUploadThingInputProps("imageUploader", {
     onUploadBegin() {
-      toast("Uploading...",
+      toast(
+        <div className="flex text-[#eee] items-center gap-2">
+          <UploadSpinner /> <span className="text-md">Uploading...</span>
+        </div>,
         {
           duration: 1000000,
           id: "upload-begin",
@@ -57,7 +87,7 @@ export default function UploadButton() {
     },
     onClientUploadComplete() {
       toast.dismiss("upload-begin");
-      toast("Upload complete!");
+      toast(<div className="flex text-[#eee] items-center gap-2"><CheckMark /> <span className="text-md">Upload complete!</span></div>);
 
       router.refresh();
     },
