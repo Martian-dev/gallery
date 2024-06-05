@@ -1,4 +1,5 @@
 import { auth } from "@clerk/nextjs/server";
+import "server-only";
 import { db } from "./db";
 
 export async function getMyImages() {

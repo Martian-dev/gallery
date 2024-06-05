@@ -8,8 +8,10 @@ export default function TopNav() {
   const router = useRouter();
 
   return (
-    <nav className="flex flex-row w-full items-center justify-between p-4 bg-gray-800 text-xl font-semibold border-b-gray-500 border-solid border-b-2">
-      <div>Gallery</div>
+    <nav
+      className="flex z-50 w-full h-auto max-h-20 items-center justify-between py-4 px-8 bg-gray-800 text-xl font-semibold border-b-gray-500 border-solid border-b-2"
+    >
+      <div className="text-2xl">Gallery</div>
       <div className="flex flex-row gap-2">
         <SignedOut>
           <SignInButton />
