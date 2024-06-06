@@ -12,7 +12,8 @@
 - [x] use next/image component for the images
 - [x] error management (w/ sentry)
 - [x] routing/image page (w/ parallel routing)
-- [ ] make the image page look better
+- [x] make the image page look better
+- [x] better upload button
+- [x] analytics (posthog)
 - [ ] delete button (w/ server actions)
-- [ ] analytics (posthog)
 - [ ] ratelimiting (w/ upstash)
