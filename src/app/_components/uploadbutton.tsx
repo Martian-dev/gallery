@@ -89,6 +89,11 @@ export default function UploadButton() {
           id: "upload-begin",
         });
     },
+    onUploadError(error) {
+      posthog.capture("upload_error", { error });
+      toast.dismiss("upload-begin");
+      toast.error("Upload failed: uploading too frequently.");
+    },
     onClientUploadComplete() {
       toast.dismiss("upload-begin");
       toast(<div className="flex text-[#eee] items-center gap-2"><CheckMark /> <span className="text-md">Upload complete!</span></div>);
